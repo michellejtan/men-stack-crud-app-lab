@@ -1,0 +1,31 @@
+<!-- views/fruits/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a Restaurants</title>
+  </head>
+  <body>
+    <h1>Create a New Restaurant!</h1>
+    <form action="/restaurants" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" />
+
+        <label for="city">City:</label>
+        <input type="city" name="city" id="city" />
+
+        <label for="state">State:</label>
+        <input type="state" name="state" id="state" />
+        
+        <label for="dishToTry">A dish you want to try here?</label>
+        <input type="checkbox" name="dishToTry" id="dishToTry" />
+    
+        <button type="submit">Add Restaurant</button>
+      </form>
+  </body>
+</html>
