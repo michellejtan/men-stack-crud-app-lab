@@ -33,6 +33,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method')); 
 app.use(morgan('dev'));
 
+// static asset middleware - used to sent static assets (CSS, Imgs and DOM manipulation JS) to the client 
+app.use(express.static('public'));
+
 // GET /
 app.get("/", async (req, res) => {
     res.render("index.ejs");
