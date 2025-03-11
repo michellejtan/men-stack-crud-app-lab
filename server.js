@@ -70,6 +70,28 @@ app.delete('/restaurants/:restaurantId', async (req, res) => {
     await Restaurant.findByIdAndDelete(req.params.restaurantId);
     res.redirect('/restaurants');
 });
+
+app.get('/restaurants/:restaurantId/edit', async (req, res) => {
+    // 1. look up the fruit by it's id
+    const foundRestaurant = await Restaurant.findById(req.params.restaurantId);
+    // 2. respond with a "edit" template with an edit form
+    res.render('restaurants/edit.ejs', { restaurant: foundRestaurant });
+});
+
+
+// update route - used to capture edit form submissions
+// from the client and send updates to MongoDB
+app.put('/restaurants/:restaurantId', async (req, res) => {
+    if(req.body.dishToTry === 'on') {
+        req.body.dishToTry = true;
+    } else {
+        req.body.dishToTry = false;
+    }
+
+    await Restaurant.findByIdAndUpdate(req.params.restaurantId, req.body);
+
+    res.redirect(`/restaurants/${req.params.restaurantId}`);
+});
   
   
 app.listen(3000, () => {
