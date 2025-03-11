@@ -1,10 +1,10 @@
-<!-- views/fruits/new.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+
     <title>Create a Restaurants</title>
   </head>
   <body>
@@ -12,7 +12,9 @@
     <nav>
       <ul>
         <li>
-          <a href="/restaurants/">Back to Restaurants</a>
+          <a class="restaurants-index-link" href="/restaurants">
+            <div class="index-link-text">Back to Restaurants</div>
+            </a>
         </li>
     </nav>
 
@@ -28,9 +30,11 @@
 
         <label for="state">State:</label>
         <input type="text" name="state" id="state" />
+        <div class="checkbox-div">
+          <label for="dishToTry">A dish you want to try here?</label>
+          <input type="checkbox" name="dishToTry" id="dishToTry" />
+        </div>
         
-        <label for="dishToTry">A dish you want to try here?</label>
-        <input type="checkbox" name="dishToTry" id="dishToTry" />
     
         <button type="submit">Add Restaurant</button>
       </form>
