@@ -7,6 +7,13 @@
  </head>
  <body>
      <h1><%= restaurant.name %></h1>
+     <nav>
+        <ul>
+            <li>
+                <a href="/restaurants">Back to Restaurants</a>
+            </li>
+        </ul>
+    </nav>
      <h2><%= restaurant.address  %></h2>
      <h2><%= restaurant.city  %>, <%= restaurant.state  %></h2>
      <% if (restaurant.dishToTry) { %>
