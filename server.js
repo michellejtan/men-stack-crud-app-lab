@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 // Import the Restaurant model
 const Restaurant = require('./models/restaurant');
 
+const methodOverride = require('method-override');
+ const morgan = require('morgan');
+
 // initialize the express application
 const app = express();
 
@@ -27,6 +30,9 @@ mongoose.connection.on('error', (error) => {
 
 app.use(express.urlencoded({ extended: false }));
 
+app.use(methodOverride('_method')); 
+app.use(morgan('dev'));
+
 // GET /
 app.get("/", async (req, res) => {
     res.render("index.ejs");
@@ -38,9 +44,6 @@ app.get("/restaurants/new", (req, res) => {
   });
 
 // POST /restaurants
-// server.js
-
-// POST /fruits
 app.post("/restaurants", async (req, res) => {
     if (req.body.dishToTry === "on") {
       req.body.dishToTry = true;
@@ -53,7 +56,7 @@ app.post("/restaurants", async (req, res) => {
 
   app.get("/restaurants", async (req, res) => {
     const allRestaurants = await Restaurant.find();
-    console.log(allRestaurants); // log the fruits!
+    console.log(allRestaurants); // log the restaurants!
     res.render("restaurants/index.ejs", { restaurants: allRestaurants });
 });
 
@@ -61,6 +64,11 @@ app.post("/restaurants", async (req, res) => {
  app.get('/restaurants/:restaurantId', async (req, res) => {
     const foundRestaurant = await Restaurant.findById(req.params.restaurantId);
     res.render('restaurants/show.ejs', { restaurant: foundRestaurant });
+});
+
+app.delete('/restaurants/:restaurantId', async (req, res) => {
+    await Restaurant.findByIdAndDelete(req.params.restaurantId);
+    res.redirect('/restaurants');
 });
   
   
