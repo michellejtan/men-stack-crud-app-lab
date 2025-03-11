@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Edit a Restaurant</title>
+</head>
+<body>
+    <h1>Edit <%= restaurant.name %></h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/restaurants">Back to Restaurants</a>
+            </li>
+        </ul>
+    </nav>
+    <form action="/restaurants/<%= restaurant._id %>?_method=PUT" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= restaurant.name %>">
+        <input type="text" name="address" id="address" value="<%= restaurant.address %>">
+        <input type="text" name="city" id="city" value="<%= restaurant.city %>">
+        <input type="text" name="state" id="state" value="<%= restaurant.state %>">
+
+        <label for="dishToTry">A dish you want to try here?</label>
+        <input type="checkbox" name="dishToTry" id="dishToTry" <% if(restaurant.dishToTry) { %> checked <% } %>>
+        <button type="submit">Edit Restaurant</button>
+    </form>
+</body>
+</html>
