@@ -3,6 +3,8 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/css/style.css">
+
      <title>Restaurant Show Page</title>
  </head>
  <body>
@@ -10,21 +12,39 @@
      <nav>
         <ul>
             <li>
-                <a href="/restaurants">Back to Restaurants</a>
+                <a class="restaurants-index-link" href="/restaurants">
+                <div class="index-link-text">Back to Restaurants</div>
+                </a>
             </li>
         </ul>
     </nav>
-     <h2><%= restaurant.address  %></h2>
-     <h2><%= restaurant.city  %>, <%= restaurant.state  %></h2>
-     <% if (restaurant.dishToTry) { %>
-         <p>You have a dish you want to try here!</p>
-     <% } else { %>
-         <p>You don't have a dish you want to try yet!</p>
-     <% } %>
 
-     <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="post">
-        <button type="submit">Delete <%= restaurant.name %></button>
-    </form>
-    <a href="/restaurants/<%= restaurant._id %>/edit">Edit <%= restaurant.name %></a>
- </body>
+    </div>
+    <h2>
+        <%= restaurant.address %>
+    </h2>
+    <h2>
+        <%= restaurant.city %>, <%= restaurant.state %>
+    </h2>
+    <% if (restaurant.dishToTry) { %>
+        <p>You have a dish you want to try here!</p>
+        <% } else { %>
+            <p>You don't have a dish you want to try yet!</p>
+            <% } %>
+                </div>
+                <div class="restaurant-actions">
+    
+                    <form  class="delete-form"
+                    action="/restaurants/<%= restaurant._id %>?_method=DELETE" 
+                    method="post"
+                    >
+                    <button class="delete-button" type="submit">
+                        Delete <%= restaurant.name %>
+                    </button>
+                    </form>
+                    <a class="edit-link" href="/restaurants/<%= restaurant._id %>/edit">
+                        <div class="edit-text">Edit <%= restaurant.name %></div>
+                    </a>
+                </div>
+</body>
  </html>

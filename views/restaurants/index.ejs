@@ -3,21 +3,27 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/css/style.css" />
+
      <title>Restaurant Index</title>
  </head>
  <body>
+    <div class="index-header-div">
+        <h1>All Restaurants</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a class="add-restaurant" href="/restaurants/new">Add New Restaurant</a>
+                </li>
+        </nav>
+    </div>
 
-     <h1>All Restaurants</h1>
-     <nav>
-        <ul>
-          <li>
-            <a href="/restaurants/new">Add New Restaurant</a>
-          </li>
-      </nav>
+
+
      <ul>
          <% restaurants.forEach(restaurant => { %>
              <li>
-                <a href="/restaurants/<%= restaurant._id %>">
+                <a class="restaurant-cards"href="/restaurants/<%= restaurant._id %>">
                     <%= restaurant.name %>
                 </a>
             </li>
