@@ -2,6 +2,8 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require("path");
+
 // Import the Restaurant model
 const Restaurant = require('./models/restaurant');
 
