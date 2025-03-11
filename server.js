@@ -77,7 +77,7 @@ app.delete('/restaurants/:restaurantId', async (req, res) => {
 });
 
 app.get('/restaurants/:restaurantId/edit', async (req, res) => {
-    // 1. look up the fruit by it's id
+    // 1. look up the restaurant by it's id
     const foundRestaurant = await Restaurant.findById(req.params.restaurantId);
     // 2. respond with a "edit" template with an edit form
     res.render('restaurants/edit.ejs', { restaurant: foundRestaurant });
