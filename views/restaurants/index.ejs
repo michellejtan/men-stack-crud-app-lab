@@ -8,9 +8,19 @@
  <body>
 
      <h1>All Restaurants</h1>
+     <nav>
+        <ul>
+          <li>
+            <a href="/restaurants/new">Add New Restaurant</a>
+          </li>
+      </nav>
      <ul>
-         <% restaurants.forEach(fruit => { %>
-             <li><%= Restaurant.name %></li>
+         <% restaurants.forEach(restaurant => { %>
+             <li>
+                <a href="/restaurants/<%= restaurant._id %>">
+                    <%= restaurant.name %>
+                </a>
+            </li>
          <% }); %>
      </ul>
  </body>
