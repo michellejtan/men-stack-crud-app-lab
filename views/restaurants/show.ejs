@@ -21,5 +21,9 @@
      <% } else { %>
          <p>You don't have a dish you want to try yet!</p>
      <% } %>
+
+     <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="post">
+        <button type="submit">Delete <%= restaurant.name %></button>
+    </form>
  </body>
  </html>
