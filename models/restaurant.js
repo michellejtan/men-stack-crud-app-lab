@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
  
  const restaurantSchema = new mongoose.Schema({
      name: String,
+     address: String,
      city: String,
      state: String,
      dishToTry: Boolean
