@@ -56,7 +56,12 @@ app.post("/restaurants", async (req, res) => {
     console.log(allRestaurants); // log the fruits!
     res.render("restaurants/index.ejs", { restaurants: allRestaurants });
 });
-  
+
+// show route
+ app.get('/restaurants/:restaurantId', async (req, res) => {
+    const foundRestaurant = await Restaurant.findById(req.params.restaurantId);
+    res.render('restaurants/show.ejs', { restaurant: foundRestaurant });
+});
   
   
 app.listen(3000, () => {
